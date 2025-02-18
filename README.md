@@ -43,15 +43,8 @@ vit-assignment-22bcy10258/
 *![image](https://github.com/user-attachments/assets/8e0872bb-0c91-43a2-8620-7f452f08a7a2)
 *
 
-## 📜 License
-This project is **MIT Licensed**. Feel free to modify and use it!
-
-## 🤝 Contributing
-Contributions are welcome! If you find any issues, feel free to open an issue or submit a pull request.
-
 ---
 
 💡 **Created by Aman Kumar Singh**  
-📧 **Contact:** amankumar.singh2022@vitbhopal.ac.in  
 🚀 **Happy Coding!**
 
