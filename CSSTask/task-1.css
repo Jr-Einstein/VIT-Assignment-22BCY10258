@@ -1,0 +1,46 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+table {
+    width: 60%;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background-color: lightblue;
+    border: 2px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+th {
+    font-weight: bold;
+    background-color: darkcyan;
+    color: white;
+}
+
+.shape-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 20px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.shape {
+    width: 100px;
+    height: 60px;
+    border: 3px solid green;
+    border-radius: 10px;
+}
+
+.oval {
+    border-radius: 50%;
+    width: 100px;
+}

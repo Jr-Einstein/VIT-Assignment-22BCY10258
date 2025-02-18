@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #17a2b8; /* Bootstrap 'info' color */
+    color: white;
+}
+
+.navbar {
+    padding: 10px;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+.navbar-nav .nav-link {
+    font-weight: bold;
+}
+
+.bg-light {
+    min-height: 80vh;
+}
+
+.bg-dark {
+    min-height: 80vh;
+    text-align: right;
+}
