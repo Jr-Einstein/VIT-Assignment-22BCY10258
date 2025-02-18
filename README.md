@@ -40,8 +40,8 @@ vit-assignment-22bcy10258/
 - **GitHub** - Version control.
 
 ## 📸 Screenshots
-*![image](https://github.com/user-attachments/assets/8e0872bb-0c91-43a2-8620-7f452f08a7a2)
-*
+![image](https://github.com/user-attachments/assets/8e0872bb-0c91-43a2-8620-7f452f08a7a2)
+
 
 ---
 
