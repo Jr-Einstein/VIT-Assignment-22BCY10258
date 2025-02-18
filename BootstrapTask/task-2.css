@@ -1,0 +1,30 @@
+.top-bar {
+    background-color: #f9b000;
+    color: black;
+}
+
+.hero-section {
+    position: relative;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.features {
+    background-color: black;
+}
+
+.features h5 {
+    font-weight: bold;
+}

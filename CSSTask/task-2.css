@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Container to align navigation bars */
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* Navigation section */
+.nav-section {
+    text-align: center;
+}
+
+/* Vertical Navigation Bar */
+.vertical-navbar {
+    width: 200px;
+    background-color: lightblue;
+    border: 2px solid black;
+}
+
+.vertical-navbar a {
+    display: block;
+    color: blue;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.vertical-navbar .active {
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+}
+
+/* Horizontal Navigation Bar */
+.horizontal-navbar {
+    display: flex;
+    width: 400px;
+    background-color: lightgray;
+    border: 2px solid black;
+}
+
+.horizontal-navbar a {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+    border-right: 1px solid black;
+}
+
+.horizontal-navbar a:last-child {
+    border-right: none;
+}
+
+.horizontal-navbar .active {
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+}

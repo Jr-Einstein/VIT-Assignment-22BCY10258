@@ -1,0 +1,19 @@
+.navbar {
+    padding: 15px 0;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.footer {
+    background-color: #f8f9fa;
+}
+
+.footer h6 {
+    font-weight: bold;
+}
