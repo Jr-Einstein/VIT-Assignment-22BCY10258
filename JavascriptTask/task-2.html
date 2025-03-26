@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5af19, #f12711);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        h2 {
+            color: #d63031;
+            font-weight: bold;
+        }
+        .btn-primary {
+            width: 100%;
+            background: #0984e3;
+            border: none;
+            font-size: 16px;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .btn-primary:hover {
+            background: #74b9ff;
+        }
+        input {
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        h4 {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #2d3436;
+        }
+        #result {
+            font-weight: bold;
+            color: #e17055;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Get Your String Sorted Alphabetically</h2>
+    <div class="mb-3">
+        <label for="stringInput" class="form-label">Enter a String:</label>
+        <input type="text" class="form-control" id="stringInput" placeholder="Enter a string">
+    </div>
+    <button class="btn btn-primary" onclick="sortString()">Sort</button>
+    <h4>Your Sorted String: <span id="result"></span></h4>
+</div>
+
+<script>
+    function sortString() {
+        let str = document.getElementById("stringInput").value;
+        if (str.trim() === "") {
+            alert("Please enter a valid string");
+            return;
+        }
+        let sortedStr = str.split("").sort().join("");
+        document.getElementById("result").innerText = sortedStr;
+    }
+</script>
+
+</body>
+</html>

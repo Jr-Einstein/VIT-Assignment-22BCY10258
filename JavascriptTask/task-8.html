@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #7209b7;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4CAF50;
+            --danger: #f44336;
+            --gray: #6c757d;
+            --border-radius: 8px;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4361ee, #7209b7);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .form-header p {
+            color: var(--gray);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -10px;
+        }
+
+        .form-group {
+            flex: 1 0 calc(50% - 20px);
+            margin: 0 10px 20px;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .form-group {
+                flex: 1 0 calc(100% - 20px);
+            }
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            outline: none;
+        }
+
+        .form-control.invalid {
+            border-color: var(--danger);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            padding-right: 35px;
+        }
+
+        textarea.form-control {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-item, .checkbox-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .radio-item input, .checkbox-item input {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+
+        .error {
+            color: var(--danger);
+            font-size: 13px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .form-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .register-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(67, 97, 238, 0.2);
+        }
+
+        .register-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(67, 97, 238, 0.3);
+        }
+
+        .register-btn:active {
+            transform: translateY(0);
+        }
+
+        .terms {
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .terms a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .terms a:hover {
+            text-decoration: underline;
+        }
+
+        .input-with-icon {
+            position: relative;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+            color: var(--gray);
+        }
+
+        .input-with-icon .form-control {
+            padding-left: 45px;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            color: var(--gray);
+            cursor: pointer;
+        }
+
+        /* Success indicator */
+        .valid-indicator {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            color: var(--success);
+            display: none;
+        }
+
+        .form-control:valid + .valid-indicator {
+            display: block;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 576px) {
+            .container {
+                padding: 25px;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-title">Create Your Account</h1>
+    
+    <div class="container">
+        <div class="form-header">
+            <h3>Registration Form</h3>
+            <p>Please fill out the form below to create your account</p>
+        </div>
+        
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <div class="form-section">
+                <h4 class="section-title"><i class="fas fa-user"></i> Personal Information</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fname">First Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="fname" class="form-control" placeholder="Enter your first name">
+                            <i class="fas fa-check-circle valid-indicator"></i>
+                        </div>
+                        <span id="fnameError" class="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lname">Last Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="lname" class="form-control" placeholder="Enter your last name">
+                            <i class="fas fa-check-circle valid-indicator"></i>
+                        </div>
+                        <span id="lnameError" class="error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                            <i class="fas fa-check-circle valid-indicator"></i>
+                        </div>
+                        <span id="emailError" class="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="text" id="phone" class="form-control" placeholder="Enter your phone number">
+                            <i class="fas fa-check-circle valid-indicator"></i>
+                        </div>
+                        <span id="phoneError" class="error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-item">
+                                <input type="radio" name="gender" value="male"> Male
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="gender" value="female"> Female
+                            </label>
+                            <label class="radio-item">
+                                <input type="radio" name="gender" value="other"> Other
+                            </label>
+                        </div>
+                        <span id="genderError" class="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                            <input type="number" id="age" class="form-control" placeholder="Enter your age">
+                            <i class="fas fa-check-circle valid-indicator"></i>
+                        </div>
+                        <span id="ageError" class="error"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h4 class="section-title"><i class="fas fa-lock"></i> Account Information</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" class="form-control" placeholder="Create a password">
+                            <i class="fas fa-eye password-toggle" onclick="togglePassword('password')"></i>
+                        </div>
+                        <span id="passwordError" class="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password">
+                            <i class="fas fa-eye password-toggle" onclick="togglePassword('confirmPassword')"></i>
+                        </div>
+                        <span id="confirmPasswordError" class="error"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h4 class="section-title"><i class="fas fa-map-marker-alt"></i> Address Information</h4>
+                
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <textarea id="address" class="form-control" placeholder="Enter your full address"></textarea>
+                    <span id="addressError" class="error"></span>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State/Province</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-map"></i>
+                            <input type="text" id="state" class="form-control" placeholder="Enter your state">
+                            <i class="fas fa-check-circle valid-indicator"></i>
+                        </div>
+                        <span id="stateError" class="error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <select id="country" class="form-control">
+                            <option value="">Select your country</option>
+                            <option value="India">India</option>
+                            <option value="USA">USA</option>
+                            <option value="UK">UK</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="France">France</option>
+                            <option value="Japan">Japan</option>
+                            <option value="China">China</option>
+                            <option value="Brazil">Brazil</option>
+                        </select>
+                        <span id="countryError" class="error"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h4 class="section-title"><i class="fas fa-sliders-h"></i> Preferences</h4>
+                
+                <div class="form-group">
+                    <label>Languages</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="English"> English
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="Hindi"> Hindi
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="Telugu"> Telugu
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="Spanish"> Spanish
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="language" value="French"> French
+                        </label>
+                    </div>
+                    <span id="languageError" class="error"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="declaration"> I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>
+                    </label>
+                    <span id="declarationError" class="error"></span>
+                </div>
+            </div>
+            
+            <div class="form-footer">
+                <button type="submit" class="register-btn">CREATE ACCOUNT</button>
+                <p class="terms">Already have an account? <a href="#">Sign in</a></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="copyright">© 2025 Aman 22BCY10258. All rights reserved.</div>
+
+    <script>
+        function validateForm() {
+            let isValid = true;
+            document.querySelectorAll(".error").forEach(el => el.innerHTML = "");
+            document.querySelectorAll(".form-control").forEach(el => el.classList.remove("invalid"));
+
+            // First name validation
+            let fname = document.getElementById("fname").value.trim();
+            if (fname === "") {
+                document.getElementById("fnameError").innerHTML = "First name is required";
+                document.getElementById("fname").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Last name validation
+            let lname = document.getElementById("lname").value.trim();
+            if (lname === "") {
+                document.getElementById("lnameError").innerHTML = "Last name is required";
+                document.getElementById("lname").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Email validation
+            let email = document.getElementById("email").value.trim();
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address";
+                document.getElementById("email").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Password validation
+            let password = document.getElementById("password").value;
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+                document.getElementById("password").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Confirm password validation
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            if (confirmPassword !== password) {
+                document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match";
+                document.getElementById("confirmPassword").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Gender validation
+            let gender = document.querySelector('input[name="gender"]:checked');
+            if (!gender) {
+                document.getElementById("genderError").innerHTML = "Please select your gender";
+                isValid = false;
+            }
+
+            // Age validation
+            let age = document.getElementById("age").value;
+            if (age === "" || age < 1) {
+                document.getElementById("ageError").innerHTML = "Please enter a valid age";
+                document.getElementById("age").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Phone validation
+            let phone = document.getElementById("phone").value;
+            if (!phone.match(/^[0-9]{10}$/)) {
+                document.getElementById("phoneError").innerHTML = "Please enter a valid 10-digit phone number";
+                document.getElementById("phone").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Address validation
+            let address = document.getElementById("address").value.trim();
+            if (address === "") {
+                document.getElementById("addressError").innerHTML = "Address is required";
+                document.getElementById("address").classList.add("invalid");
+                isValid = false;
+            }
+
+            // State validation
+            let state = document.getElementById("state").value.trim();
+            if (state === "") {
+                document.getElementById("stateError").innerHTML = "State is required";
+                document.getElementById("state").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Country validation
+            let country = document.getElementById("country").value;
+            if (country === "") {
+                document.getElementById("countryError").innerHTML = "Please select a country";
+                document.getElementById("country").classList.add("invalid");
+                isValid = false;
+            }
+
+            // Declaration validation
+            let declaration = document.getElementById("declaration").checked;
+            if (!declaration) {
+                document.getElementById("declarationError").innerHTML = "You must agree to the terms and conditions";
+                isValid = false;
+            }
+
+            // If form is valid, show success message (in a real app, you would submit the form)
+            if (isValid) {
+                alert("Registration successful!");
+                // In a real application, you would submit the form to the server here
+            }
+
+            return false; // Prevent form submission for this demo
+        }
+
+        // Toggle password visibility
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            const icon = passwordInput.nextElementSibling;
+            
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        }
+
+        // Real-time validation for email
+        document.getElementById("email").addEventListener("input", function() {
+            const email = this.value.trim();
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            
+            if (email && !email.match(emailPattern)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address";
+                this.classList.add("invalid");
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+                this.classList.remove("invalid");
+            }
+        });
+
+        // Real-time validation for password
+        document.getElementById("password").addEventListener("input", function() {
+            const password = this.value;
+            
+            if (password && password.length < 6) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+                this.classList.add("invalid");
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+                this.classList.remove("invalid");
+            }
+            
+            // Check confirm password match if it has a value
+            const confirmPassword = document.getElementById("confirmPassword");
+            if (confirmPassword.value) {
+                if (confirmPassword.value !== password) {
+                    document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match";
+                    confirmPassword.classList.add("invalid");
+                } else {
+                    document.getElementById("confirmPasswordError").innerHTML = "";
+                    confirmPassword.classList.remove("invalid");
+                }
+            }
+        });
+
+        // Real-time validation for confirm password
+        document.getElementById("confirmPassword").addEventListener("input", function() {
+            const confirmPassword = this.value;
+            const password = document.getElementById("password").value;
+            
+            if (confirmPassword !== password) {
+                document.getElementById("confirmPasswordError").innerHTML = "Passwords do not match";
+                this.classList.add("invalid");
+            } else {
+                document.getElementById("confirmPasswordError").innerHTML = "";
+                this.classList.remove("invalid");
+            }
+        });
+    </script>
+</body>
+</html>

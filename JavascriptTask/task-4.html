@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn-date {
+            background: #ff7eb3;
+            color: white;
+        }
+        .btn-time {
+            background: #ff758c;
+            color: white;
+        }
+        .btn:hover {
+            filter: brightness(1.1);
+        }
+        .output {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Show Date & Time</h2>
+        <button class="btn btn-date" onclick="showDate()">Show Date</button>
+        <p class="output" id="date"></p>
+
+        <button class="btn btn-time" onclick="showTime()">Show Time</button>
+        <p class="output" id="time"></p>
+    </div>
+    <BR>
+    
+    </BR>
+    <div class="copyright">© 2025 Aman 22BCY10258. All rights reserved.</div>
+
+
+    <script>
+        function showDate() {
+            let today = new Date();
+            let day = today.getDate();
+            let month = today.toLocaleString('default', { month: 'long' });
+            let year = today.getFullYear();
+            document.getElementById("date").innerText = `📅 ${day} ${month}, ${year}`;
+        }
+
+        function showTime() {
+            let now = new Date();
+            let hours = now.getHours().toString().padStart(2, '0');
+            let minutes = now.getMinutes().toString().padStart(2, '0');
+            let seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById("time").innerText = `⏰ ${hours}:${minutes}:${seconds}`;
+        }
+    </script>
+
+</body>
+</html>

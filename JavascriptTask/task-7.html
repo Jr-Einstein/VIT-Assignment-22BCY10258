@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7 - Train Animation</title>
+    <style>
+        /* General Styles */
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Train Container */
+        .train-container {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-bottom: 4px solid #007bff;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        /* Train Image */
+        .train {
+            position: absolute;
+            left: -300px;
+            width: 280px;
+            height: auto;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        /* Heading */
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* Button Container */
+        .buttons {
+            margin-top: 15px;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 140px;
+        }
+
+        /* Start Button */
+        .btn-start {
+            background: #007bff;
+            color: white;
+        }
+        .btn-start:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Stop Button */
+        .btn-stop {
+            background: #dc3545;
+            color: white;
+        }
+        .btn-stop:hover {
+            background: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        /* Copyright */
+        .copyright {
+            font-size: 14px;
+            margin-top: 20px;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="train-container">
+        <img src="train image.jpg" alt="Train" class="train">
+    </div>
+
+    <h2>Train Animation Controller 🚆</h2>
+
+    <div class="buttons">
+        <button class="btn btn-start" onclick="startTrain()">Start Train</button>
+        <button class="btn btn-stop" onclick="stopTrain()">Stop Train</button>
+    </div>
+
+    <div class="copyright">© 2025 Aman 22BCY10258. All rights reserved.</div>
+
+    <script>
+        let train = document.querySelector('.train');
+        let position = -300;
+        let interval;
+        let trainSpeed = 8;
+
+        function startTrain() {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                if (position < window.innerWidth) {
+                    position += trainSpeed;
+                    train.style.left = position + 'px';
+                } else {
+                    position = -300;
+                }
+            }, 50);
+        }
+
+        function stopTrain() {
+            clearInterval(interval);
+        }
+    </script>
+
+</body>
+</html>
