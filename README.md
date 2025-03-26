@@ -4,17 +4,18 @@ This is the **VIT Assignment Dashboard** designed to manage and display assignme
 
 ## 🚀 Features
 - 📌 **User Profile Section** with name, registration number, and email.
-- 📝 **Assignment Board** organized into HTML, CSS, and Bootstrap tasks.
-- 🔽 **Dropdown Sections** with smooth open/close functionality.
+- 📝 **Assignment Board** organized into HTML, CSS, Bootstrap, and JavaScript tasks.
+- 🕽 **Dropdown Sections** with smooth open/close functionality.
 - 🎨 **Responsive UI** with a clean and professional design.
-- 📜 **Footer with Copyright Notice** at the bottom of the page.
+- 📝 **Footer with Copyright Notice** at the bottom of the page.
 
-## 📁 Project Structure
+## 💁 Project Structure
 ```
 vit-assignment-22bcy10258/
 │── HTMLTask/            # HTML Assignment Files
 │── CSSTask/             # CSS Assignment Files
 │── BootstrapTask/       # Bootstrap Assignment Files
+│── JavascriptTask/      # JavaScript Assignment Files
 │── assets/              # Images and other assets
 │── styles.css           # Main CSS file
 │── script.js            # JavaScript for dropdown functionality
@@ -40,8 +41,7 @@ vit-assignment-22bcy10258/
 - **GitHub** - Version control.
 
 ## 📸 Screenshots
-![image](https://github.com/user-attachments/assets/8e0872bb-0c91-43a2-8620-7f452f08a7a2)
-
+![image](https://github.com/user-attachments/assets/8eb7975f-e2b4-475a-85b3-29b175873c84)
 
 ---
 
